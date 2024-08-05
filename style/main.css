@@ -1,0 +1,310 @@
+@import url("reset.css");
+
+:root{
+    --pale-violet:hsl(276, 100%, 81%);
+    --moderate-violet:hsl(276, 55%, 52%);
+    --desaturated-dark-violet:hsl(271, 15%, 43%);
+    --grayish-blue:hsl(206, 6%, 79%);
+    --very-dark-desaturated-violet:hsl(271, 36%, 24%);
+    --dark-grayish-violet:hsl(270, 7%, 64%);
+
+    --light-magenta:hsl(293, 100%, 63%);
+    --light-violet:hsl(264, 100%, 61%);
+
+    --light-grayish-violet:hsl(270, 20%, 96%);
+    --very-light-magenta:hsl(289, 100%, 72%);
+}
+
+*{
+    margin:0;
+    padding:0;
+    font-family: "Rubik";
+}
+
+h1{
+    margin-bottom: 1.5rem;
+    color:var(--very-dark-desaturated-violet);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+h4{
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+body{
+    background-color: var(--light-grayish-violet);
+    padding:2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:4rem;
+}
+
+.phone-container{
+    width:20rem;
+
+    border: 10px solid white;
+    border-radius: 25px;
+}
+
+.text-container{
+    color:var(--dark-grayish-violet);
+}
+
+/* Phone Heading styling*/
+
+.heading-container{
+    /* In here I wanted to use grid as a second method (You can use flexbox) in order is reduce the number of div inside heading-container. */
+    position: relative;
+    padding:2rem 1rem 0.8rem 1rem;
+
+    display: grid;
+    grid-template-columns: 10px 30px 200px 10px ;
+    grid-template-rows: 1rem 1rem;
+    grid-template-areas: 
+        'arrow img name dots'
+        'arrow img available dots';
+    column-gap: 0.5rem;
+    align-items: center;
+
+    background-image: linear-gradient(to left,var(--light-magenta),var(--light-violet));
+    border-radius: 15px 15px 5px 5px;
+}
+
+#left-angle{
+    grid-area: arrow;
+}
+
+#avatar{
+    grid-area: img;
+}
+
+#availabe{
+    grid-area: available;
+
+    color:var(--grayish-blue);
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+#dots{
+    grid-area: dots;
+}
+
+.heading-container img{
+    width:2rem;
+    border: 1px solid white;
+    border-radius: 100%;
+}
+
+.heading-container i{
+    font-size:12px;
+}
+
+.heading-container::before{
+    content: "";
+    width:10rem;
+    height: 1.4rem;
+    background-color: white;
+    border-radius: 0 0 18px 18px;
+
+    position: absolute;
+    top:0;
+    left:4.8rem;
+}
+
+/* Main Phone styling */
+
+.main-container{
+    padding:0.6rem;
+    font-size: 12px;
+    background-color: var(--light-grayish-violet);
+
+    display: flex;
+    flex-direction: column;
+    gap:0.7rem;
+}
+
+.left-text{
+    padding:0.5rem;
+    width:11.5rem;
+    color:var(--moderate-violet);
+
+    background-color: hsl(279, 41%, 92%);
+    border-radius: 15px 15px 15px 5px;
+}
+
+.dog-pictures-container{
+    display: flex;
+    gap:0.5rem;
+}
+
+.dog-pictures-container img{
+    width:3rem;
+    border-radius: 10px;
+}
+
+.right-conversation{
+    margin: 0.5rem 0 0.5rem 0;
+    align-self: last baseline;
+    width:11.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap:0.7rem;
+}
+
+.right-conversation p{
+    padding:0.5rem;
+    width:fit-content;
+    color:var(--desaturated-dark-violet);
+
+    background-color: white;
+    border-radius:15px 15px 5px 15px;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1);
+}
+
+/* Styling the price container */
+
+.price{
+    color: rgb(212, 210, 210);
+    width:14rem;
+    padding:0.4rem;
+
+    background-image: linear-gradient(to right,var(--light-magenta),var(--light-violet));
+    border-radius: 15px 15px 15px 5px;
+
+    display: grid;
+    grid-template-columns: 1.5rem 8rem 2rem;
+    align-items: center;
+}
+
+span{
+    color:white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.price input{
+    cursor: pointer;
+    appearance: none;
+    height: 1rem;
+    width:1rem;
+
+    border:1px solid var(--very-light-magenta);
+    border-radius: 100%;
+
+    transform: translateY(-0.075em);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.price input::before{
+    content: "";
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);  
+    background-color: white; 
+}
+
+.price input:checked::before{
+    transform: scale(1);
+}
+
+/* Styling the input container */
+
+form input{
+    padding:0.9rem;
+    width:100%;
+    border:none;
+    border-radius: 20px;
+}
+
+::placeholder{
+    color:var(--grayish-blue);
+}
+
+form{
+    position: relative;
+}
+
+form button{
+    cursor: pointer;
+    padding:0.6rem 0.8rem;
+    position: absolute;
+    right:0.3rem;
+    top:0.3rem;
+
+    background-color: var(--very-dark-desaturated-violet);
+    border:none;
+    border-radius: 100%;
+}
+
+form button:hover{
+    opacity: 0.6;
+}
+
+/* Styling the body backgrounds*/
+
+.background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -2;
+    transition: all 1s;
+  }
+  
+  .background1 {
+    position: fixed;
+    height: 88%;
+    width: 800px;
+    top: 0;
+    left:clamp(-500px, -9.5vw, -850px);
+    border-radius: 0 0 50% 50%;
+    background-image: linear-gradient(to bottom,var(--light-magenta),var(--light-violet) 100%);
+
+    z-index: -2;
+  }
+  
+  .background2 {
+    content: "";
+    position: absolute;
+    height: 88%;
+    width: 800px;
+    bottom: 0;
+    right: clamp(-500px, -29.5vw, -850px);
+    rotate: 180deg;
+    border-radius: 0 0 50% 50%;
+    background: hsl(220, 7%, 92%);
+    opacity: 0.9;
+    z-index: -2;
+  }
+
+@media (min-width:50em){
+    main{
+        flex-direction: row;
+        gap:8rem;
+    }
+
+    .text-container{
+        width:28rem;
+    }
+}
